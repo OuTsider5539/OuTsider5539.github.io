@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="kali2020pwn环境安装, ShowSomething">
+    <meta name="keywords" content="cisp学习笔记, ShowSomething">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>kali2020pwn环境安装 | ShowSomething</title>
+    <title>cisp学习笔记 | ShowSomething</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">kali2020pwn环境安装</h1>
+                    <h1 class="description center-align post-title">cisp学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                                <span class="chip bg-color">环境配置</span>
+                            <a href="/tags/cisp/">
+                                <span class="chip bg-color">cisp</span>
                             </a>
                         
                     </div>
@@ -385,21 +385,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2023-06-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2023-06-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    343
+                    199
                 </div>
                 
 
@@ -411,51 +411,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="kali-2020-3-安装pwn环境"><a href="#kali-2020-3-安装pwn环境" class="headerlink" title="kali 2020.3 安装pwn环境"></a>kali 2020.3 安装pwn环境</h1><p>配环境自用</p>
-<h2 id="安装pwntools"><a href="#安装pwntools" class="headerlink" title="安装pwntools"></a>安装pwntools</h2><pre><code>apt-get update
-apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade pwntools
-</code></pre>
-<h2 id="安装checksec"><a href="#安装checksec" class="headerlink" title="安装checksec"></a>安装checksec</h2><pre><code>git clone https://github.com/slimm609/checksec.sh.git
-cd checksec.sh
-sudo cp checksec /usr/bin/checksec
-</code></pre>
-<p>新版使用方法：</p>
-<pre><code>checksec --file=filename
-</code></pre>
-<h2 id="安装pwndbg"><a href="#安装pwndbg" class="headerlink" title="安装pwndbg"></a>安装pwndbg</h2><pre><code>git clone https://github.com/pwndbg/pwndbg
- cd pwndbg
-sudo ./setup.sh
-</code></pre>
-<h2 id="安装ROPGadget"><a href="#安装ROPGadget" class="headerlink" title="安装ROPGadget"></a>安装ROPGadget</h2><pre><code>sudo pip install capstone
-git clone https://github.com/JonathanSalwan/ROPgadget.git
-cd ROPgadget
-sudo python3 setup.py install
-</code></pre>
-<h3 id="ROPgadget出现错误"><a href="#ROPgadget出现错误" class="headerlink" title="ROPgadget出现错误"></a>ROPgadget出现错误</h3><p>ROPgadget出现错误：</p>
-<pre><code>$ ROPgadget -help    
-Traceback (most recent call last):
-  File &quot;/usr/local/bin/ROPgadget&quot;, line 4, in &lt;module&gt;
-    __import__(&#39;pkg_resources&#39;).run_script(&#39;ROPGadget==5.8&#39;, &#39;ROPgadget&#39;)
-  File &quot;/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py&quot;, line 666, in run_script
-    self.require(requires)[0].run_script(script_name, ns)
-  File &quot;/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py&quot;, line 1437, in run_script
-    .format(**locals()),
-pkg_resources.ResolutionError: Script &#39;scripts/ROPgadget&#39; not found in metadata at &#39;/usr/local/lib/python2.7/dist-packages/ROPGadget-5.8.dist-info&#39;</code></pre>
-<p>其实很简单：<br>提示目录/usr/local/lib/python2.7/dist-packages/ROPGadget-5.8.dist-info没有scripts/ROPgadget。<br>重新cp一个就行了</p>
-<pre><code>
-sudo cp -r scripts /usr/local/lib/python2.7/dist-packages/ROPGadget-5.8.dist-info</code></pre>
-<p>就行了</p>
-<h2 id="安装LibcSearcher"><a href="#安装LibcSearcher" class="headerlink" title="安装LibcSearcher"></a>安装LibcSearcher</h2><pre><code>git clone https://github.com/lieanu/LibcSearcher.git
-cd LibcSearcher
-sudo python3 setup.py develop
-</code></pre>
-<h2 id="安装32位libc-方便运行32位程序"><a href="#安装32位libc-方便运行32位程序" class="headerlink" title="安装32位libc,方便运行32位程序"></a>安装32位libc,方便运行32位程序</h2><pre><code>sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install libc6:i386
-sudo apt-get install libgtk2.0-0:i386</code></pre>
-<p>转载于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Cony_14/article/details/109208558">https://blog.csdn.net/Cony_14/article/details/109208558</a><br>参考 文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31990441/article/details/103534937">https://blog.csdn.net/qq_31990441/article/details/103534937</a></p>
+                <h1 id="错题知识点"><a href="#错题知识点" class="headerlink" title="错题知识点"></a>错题知识点</h1><h2 id="应急响应"><a href="#应急响应" class="headerlink" title="应急响应"></a>应急响应</h2><p>应急响应是信息安全事件管理的重要内容。<br>应急响应是指组织为了应对突发/重大信息安全事件的发生所做的准备，以及在事件发生后所采取的措施。<br>应急响应工作与其他信息安全管理工作相比有其鲜明的特点：具有高技术复杂性与专业性、强突发性、对知识经验的高依赖性，以及需要广泛的协调与合作。<br>应急响应工作的起源和相关机构的成立和1988年11月发生的莫里斯蠕虫病毒事件有关，基于该事件，人们更加重视安全事件的应急处置和整体协调的重要性。</p>
 
             </div>
             <hr/>
@@ -481,7 +437,7 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.showsomething.net/p/e22c.html">http://www.showsomething.net/p/e22c.html</a>
+                    <a href="http://www.showsomething.net/p/ba9b.html">http://www.showsomething.net/p/ba9b.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -519,8 +475,8 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                                    <span class="chip bg-color">环境配置</span>
+                                <a href="/tags/cisp/">
+                                    <span class="chip bg-color">cisp</span>
                                 </a>
                             
                         </div>
@@ -690,9 +646,10 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/p/ba9b.html">
                     <div class="card-image">
@@ -710,9 +667,9 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-06-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -721,6 +678,7 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -736,7 +694,7 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/p/e22c.html">
@@ -766,7 +724,6 @@ sudo apt-get install libgtk2.0-0:i386</code></pre>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
